@@ -48,7 +48,7 @@ static int hover_button = 31; // Marker Set
 static int line_tracker_yaw_button = 24; // Rewind 
 
 static int num_robots = 2; // This must be the size of the next line
-static int quad_selectors[] = {5,6}; // The buttons of solo 
+static int quad_selectors[] = {1,2}; // The buttons of solo 
 
 static double xoff, yoff, zoff, yaw_off;
 geometry_msgs::Point goal;
@@ -102,6 +102,14 @@ void hover_in_place();
 // Callbacks and functions
 static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
 {
+  
+         bool selected = false; 
+  
+    for (int i = 0; i < num_robots; i++)
+    {
+      selected = selected || (msg->buttons[quad_selectors[i]] && i == quad_num_);
+    }
+    
   if(msg->buttons[estop_button])
   {
     // Publish the E-Stop command
@@ -123,7 +131,9 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
       ROS_INFO("Waiting for Odometry!");
       return;
     }
-  
+
+ 
+ 
     // Motors on (Rec) 
     if(msg->buttons[motors_on_button])
     {
@@ -134,7 +144,7 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
     }
     
     // Take off (Play)
-    if(msg->buttons[takeoff_button])
+    if(selected && msg->buttons[takeoff_button])
     {
       state_ = TAKEOFF;
       ROS_INFO("Initiating launch sequence...");
@@ -174,11 +184,7 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
         break;    
     }*/
    
-       bool selected = false;
-    for (int i = 0; i < num_robots; i++)
-    {
-      selected = selected || (msg->buttons[quad_selectors[i]] && i == quad_num_);
-    }
+
    
     // Hover
     if(msg->buttons[hover_button])  // Marker Set
