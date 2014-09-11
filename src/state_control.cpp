@@ -48,7 +48,7 @@ static int hover_button = 31; // Marker Set
 static int line_tracker_yaw_button = 24; // Rewind 
 
 static int num_robots = 2; // This must be the size of the next line
-static int quad_selectors[] = {1,2}; // The buttons of solo 
+static int quad_selectors[] = {0,1}; // The buttons of solo 
 
 static double xoff, yoff, zoff, yaw_off;
 geometry_msgs::Point goal;
