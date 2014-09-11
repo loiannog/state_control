@@ -47,12 +47,14 @@ static int velocity_tracker_button = 30; // Track R
 static int hover_button = 31; // Marker Set
 static int line_tracker_yaw_button = 24; // Rewind 
 
-static int num_robots = 3; // This must be the size of the next line
-static int quad_selectors[] = {5,6,7}; // The buttons of solo 
+static int num_robots = 2; // This must be the size of the next line
+static int quad_selectors[] = {5,6}; // The buttons of solo 
 
 static double xoff, yoff, zoff, yaw_off;
 geometry_msgs::Point goal;
 static int quad_num_;
+
+
 
 static enum controller_state state_ = INIT;
  
@@ -171,13 +173,20 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
       default:
         break;    
     }*/
+   
+       bool selected = false;
+    for (int i = 0; i < num_robots; i++)
+    {
+      selected = selected || (msg->buttons[quad_selectors[i]] && i == quad_num_);
+    }
+   
     // Hover
     if(msg->buttons[hover_button])  // Marker Set
     {
       hover_in_place(); 
     }
     // Line Tracker
-    else if(msg->buttons[line_tracker_button] && (state_ == HOVER || state_ == LINE_TRACKER || state_ == TAKEOFF))
+    else if(selected && msg->buttons[line_tracker_button] && (state_ == HOVER || state_ == LINE_TRACKER || state_ == TAKEOFF))
     {
       ROS_INFO("Engaging controller: LINE_TRACKER");
       geometry_msgs::Point goal;
@@ -190,7 +199,7 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
       srv_transition_.call(transition_cmd);
     }
     // Line Tracker Yaw
-    else if(msg->buttons[line_tracker_yaw_button] && (state_ == HOVER || state_ == LINE_TRACKER_YAW || state_ == TAKEOFF))
+    else if(selected && msg->buttons[line_tracker_yaw_button] && (state_ == HOVER || state_ == LINE_TRACKER_YAW || state_ == TAKEOFF))
     {
       
       //this state represent the vision feedback state 
@@ -225,7 +234,7 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
       srv_transition_.call(transition_cmd);
     }*/  
    
-   else if(msg->buttons[traj_button] && state_ == HOVER)
+   else if(selected && msg->buttons[traj_button] && state_ == HOVER)
     {
       // traj[t_idx][flat_out][deriv]
       //
@@ -312,7 +321,6 @@ cout<<"current ref vel:"<<traj_goal.vel.x<<" "<<traj_goal.vel.y<<" "<<traj_goal.
 cout<<"current ref acc:"<<traj_goal.acc.x<<" "<<traj_goal.acc.y<<" "<<traj_goal.acc.z<<" "<<traj_goal.acc.yaw<<endl;
 
 }
-
 
 void hover_in_place()
 {

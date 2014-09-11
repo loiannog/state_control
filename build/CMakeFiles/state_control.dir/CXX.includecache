@@ -139,10 +139,6 @@ tf/LinearMath/Matrix3x3.h
 -
 math.h
 -
-bearingNetwork.hpp
--
-vectorTypes.hpp
--
 trajectory_tracker/GoalCommand.h
 -
 trajectory.h
@@ -150,16 +146,6 @@ trajectory.h
 iostream
 -
 string
--
-
-/home/giuseppe/git/state_control/src/trajectory.cpp
-trajectory.h
-/home/giuseppe/git/state_control/src/trajectory.h
-iostream
--
-fstream
--
-sstream
 -
 
 /opt/ros/hydro/include/XmlRpcDecl.h
