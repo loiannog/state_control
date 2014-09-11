@@ -1,0 +1,20 @@
+<package>
+  <description brief="state_control">
+
+     state_control
+
+  </description>
+  <author>giuseppe loianno</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/state_control</url>
+  <depend package="roscpp"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="std_srvs"/>
+  <depend package="controllers_manager"/>
+  <depend package="velocity_tracker"/>
+  <depend package="trajectory_tracker"/>
+</package>
+
+
