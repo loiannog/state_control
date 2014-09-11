@@ -11,3 +11,21 @@ SET(CMAKE_TARGET_DEFINITIONS
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   )
+
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "../include"
+  "/home/xuee/git/quadrotor/controllers/controllers_manager/include"
+  "/home/xuee/git/quadrotor/controllers/controllers_manager/srv_gen/cpp/include"
+  "/home/xuee/git/quadrotor/quadrotor_msgs/include"
+  "/home/xuee/git/quadrotor/quadrotor_msgs/msg_gen/cpp/include"
+  "/home/xuee/git/quadrotor/controllers/velocity_tracker/msg_gen/cpp/include"
+  "/home/xuee/git/quadrotor/controllers/trajectory_tracker/msg_gen/cpp/include"
+  "/home/xuee/git/quadrotor/controllers/trajectory_tracker/srv_gen/cpp/include"
+  "/opt/ros/indigo/include"
+  "../msg_gen/cpp/include"
+  "../srv_gen/cpp/include"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

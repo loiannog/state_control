@@ -187,7 +187,7 @@ static void nanokontrol_cb(const sensor_msgs::Joy::ConstPtr &msg)
 
    
     // Hover
-    if(msg->buttons[hover_button])  // Marker Set
+    if(selected && msg->buttons[hover_button])  // Marker Set
     {
       hover_in_place(); 
     }

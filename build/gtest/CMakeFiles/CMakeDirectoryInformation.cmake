@@ -3,28 +3,11 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/gtest")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/giuseppe/git/state_control/build")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/xuee/git/state_control/build")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
 
-# The C and CXX include file search paths:
-SET(CMAKE_C_INCLUDE_PATH
-  "/home/giuseppe/git/state_control/include"
-  "/home/giuseppe/git/quadrotor/controllers/controllers_manager/include"
-  "/home/giuseppe/git/quadrotor/controllers/controllers_manager/srv_gen/cpp/include"
-  "/home/giuseppe/git/quadrotor/quadrotor_msgs/include"
-  "/home/giuseppe/git/quadrotor/quadrotor_msgs/msg_gen/cpp/include"
-  "/home/giuseppe/git/quadrotor/controllers/velocity_tracker/msg_gen/cpp/include"
-  "/home/giuseppe/git/quadrotor/controllers/trajectory_tracker/msg_gen/cpp/include"
-  "/home/giuseppe/git/quadrotor/controllers/trajectory_tracker/srv_gen/cpp/include"
-  "/opt/ros/hydro/include"
-  "/usr/src/gtest/include"
-  "/usr/src/gtest"
-  )
-SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
-SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
-SET(CMAKE_ASM_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 
 # The C and CXX include file regular expressions for this directory.
 SET(CMAKE_C_INCLUDE_REGEX_SCAN "^.*$")

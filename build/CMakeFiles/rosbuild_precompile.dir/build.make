@@ -31,11 +31,14 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/giuseppe/git/state_control
+CMAKE_SOURCE_DIR = /home/xuee/git/state_control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/giuseppe/git/state_control/build
+CMAKE_BINARY_DIR = /home/xuee/git/state_control/build
 
 # Utility rule file for rosbuild_precompile.
 
@@ -57,6 +60,6 @@ CMakeFiles/rosbuild_precompile.dir/clean:
 .PHONY : CMakeFiles/rosbuild_precompile.dir/clean
 
 CMakeFiles/rosbuild_precompile.dir/depend:
-	cd /home/giuseppe/git/state_control/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/giuseppe/git/state_control /home/giuseppe/git/state_control /home/giuseppe/git/state_control/build /home/giuseppe/git/state_control/build /home/giuseppe/git/state_control/build/CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/xuee/git/state_control/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xuee/git/state_control /home/xuee/git/state_control /home/xuee/git/state_control/build /home/xuee/git/state_control/build /home/xuee/git/state_control/build/CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosbuild_precompile.dir/depend
 
